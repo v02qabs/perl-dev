@@ -12,9 +12,6 @@ my %words = (a=>['ディレクトリ内のファイルとディレクトリを�
 するコマンドを書け',  'clear'], c=>['コマンドでファイルをssh接続
 でファイル転送するコマンド名を書け', 'scp']);
 
-
-
-#my $answer = <STDIN>;
 #chomp($answer);
 
 #my $words_length = @words;
@@ -22,4 +19,22 @@ my %words = (a=>['ディレクトリ内のファイルとディレクトリを�
      
 print scalar(keys(%words)), "\n";
 print $#{$words{a}}, "\n";
-print $words{a}[0], "\n";
+print ord("a"), "\n";
+print chr(97), "\n";
+print $words{chr(97)}[0] , "\n";
+print $words{chr(97)}[1], "\n";
+my $answer = <STDIN>; #キーボードからの入力
+chomp($answer);
+#my $answer = "ls";
+if($answer eq "ls")
+{
+	print "ok.\n";
+}else
+{
+	print "ng.\n";
+}
+
+
+
+
+
