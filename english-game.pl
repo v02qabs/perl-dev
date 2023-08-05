@@ -13,11 +13,14 @@ $i=0;
 
 my $o;
 
+my $len;
+$len = keys %words;
+
 &mains;
 
 sub mains
 {
-	for($i=0;$i<3;$i++)
+	for($i=0;$i<$len;$i++)
 	{
 		print "問題：";
 		print $words{chr(97+$i)}[0], "\n";
