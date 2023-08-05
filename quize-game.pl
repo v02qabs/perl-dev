@@ -21,6 +21,7 @@ print scalar(keys(%words)), "\n";
 print $#{$words{a}}, "\n";
 print ord("a"), "\n";
 print chr(97), "\n";
+
 print $words{chr(97)}[0] , "\n";
 print $words{chr(97)}[1], "\n";
 my $answer = <STDIN>; #キーボードからの入力
