@@ -5,12 +5,24 @@ print "If you start game when , push the Enter key. \n";
 my $Enter = <STDIN>;
 
 my %words = (a=>['私にそれをさせてください。', 'Let me do it.'], b=>['留学する事を決める', 'Decide to study abroad.']
-	, c=>['犬をきちんと訓練する','Train dogs properly.']);
+	, c=>['犬をきちんと訓練する','Train dogs properly.']
+	,d=>['日本中を旅行する', 'Travel all through Japan.'] 
+	,e=>['ドアを開けたままにする。', 'Leave a door open.']
+	,f=>['車を止める', 'Park a car.']);
 
-
+my $c;
 my $i;
-$i=0;
+$i = 0;
+my @array;
 
+open((DATAFILE, "<mondai.txt")) or die("error:$!");
+while(my $line = <DATAFILE>)
+{
+	print "問題：" . $line;
+	my $key;
+	$key =(split(/\n/, $line))[2];
+	print $key;
+}
 my $o;
 
 my $len;
