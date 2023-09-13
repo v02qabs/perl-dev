@@ -8,12 +8,12 @@ open(DATALINE, "<", 'item.txt') or die("error");
 while(my $line = <DATALINE>)
 {
 	chomp($line);#改行を削除
-#	print "data: ".$line."\n"; #データを表示
-	my $ord = ord($line);
-#	print "ord: ".$ord."\n";
-	my $counter = $ord + 1;
+	print "data: ".$line."\n"; #データを表示
+	my $ord = ord($line.$line);
+	print "ord: ".$ord."\n";
+	my $counter = $ord;
 #	print "counter: ".$counter."\n";
-	&wri($counter);
+	//&wri($counter);
 }
 
 close(DATALINE);
