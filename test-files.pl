@@ -3,22 +3,35 @@ use warnings;
 
 # 引数の処理
 my $file = shift;
+&Question($file, "question");
 
-unless ($file) {
-    die "Usage: $0 file"; # 引数がないときは、使用方法を示して終了。
-}
 
-# csvの各列に対応するキーを作成
-my $headers = [ 'name', 'age', 'country' ]; 
+#問題のみリストアップ。
+sub Question{
+	my ($file, $question) = @_;
 
-# ファイルを解析してcsv形式のデータを配列の配列に変換。
-# ヘッダのキーも引数として渡す。
-my @recs = parse_file($file, $headers);
+	unless ($file) {
+ 	   die "Usage: $0 file"; # 引数がないときは、使用方法を示して終了。
+	}
 
-# 出力( ハッシュの配列なので、forでたどる )
-for my $items ( @recs ){
-  # ハッシュスライスを利用して連結
-  print join(',', @{$items}{"name"} ) . "\n"; 
+	# csvの各列に対応するキーを作成
+	my $headers = [ "question", "Answer"]; 
+
+	# ファイルを解析してcsv形式のデータを配列の配列に変換。
+	# ヘッダのキーも引数として渡す。
+	my @recs = parse_file($file, $headers);
+
+print "@recs"."\n";
+
+	# 出力( ハッシュの配列なので、forでたどる )
+	for( my $itemss=0; $itemss< @$recs; $itemss++ ){
+		print "items: ".$itemss."\n";
+		print "values: ".$recs[$itemss]."\n";
+	  # ハッシュスライスを利用して連結
+	 # 	push $items.$recs;
+#	 print join(',', @{$items}{$question}) . "\n";
+	
+	}
 }
 
 # ファイル解析用の関数( 今回は単に書き戻すだけだけれど・・ )
