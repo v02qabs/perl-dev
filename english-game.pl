@@ -8,42 +8,10 @@ my %words = (a=>['私にそれをさせてください。', 'Let me do it.'], b=
 	, c=>['犬をきちんと訓練する','Train dogs properly.']
 	,d=>['日本中を旅行する', 'Travel all through Japan.'] 
 	,e=>['ドアを開けたままにする。', 'Leave a door open.']
-	,f=>['車を止める', 'Park a car.']);
+	,f=>['車を止める', 'Park a car.']
+	,g=>['見本', 'specimen']);
 
-my $c;
-my $i;
-$i = 0;
-my @array;
+open(my $op ,"<", "./mondai.txt");
+my @lines = map { chomp; $_ } <$op>;
 
-open((DATAFILE, "<mondai.txt")) or die("error:$!");
-while(my $line = <DATAFILE>)
-{
-	print "問題：" . $line;
-	my $key;
-	$key =(split(/\n/, $line))[2];
-	print $key;
-}
-my $o;
-
-my $len;
-$len = keys %words;
-
-&mains;
-
-sub mains
-{
-	for($i=0;$i<$len;$i++)
-	{
-		print "問題：";
-		print $words{chr(97+$i)}[0], "\n";
-		my $Answer = <STDIN>;
-		chomp($Answer);
-		my $words_answer = $words{chr(97+$i)}[1];
-		if($Answer eq $words_answer){
-			print "正解.";
-			print "\n";
-		}else{
-			print "不正解.\n";
-		}
-	}
-}
+close $op;
