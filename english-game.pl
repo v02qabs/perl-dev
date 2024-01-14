@@ -9,4 +9,7 @@ my $b1;
 open($op ,"<", "./mondai.txt");
 @lines = map { $_ } <$op>;
 
-close $op;
+print "--grep---"."\n";
+print @lines;
+
+
